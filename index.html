@@ -1,493 +1,386 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vale Imobiliária</title>
-    <link href="images/favicon.ico" rel="icon" type="image/x-icon" />
-    <!-- Bootstrap -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous"
-    />
-    <!-- Bootstrap Icons -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-    />
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <!-- CSS local -->
-    <link href="css/style.css" rel="stylesheet" />
-  </head>
-  <body>
-    <header>
-      <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="navbar">
-        <div class="container">
-          <a class="navbar-brand" href="index.html">
-            <img
-              src="images/logo-negativo.svg"
-              alt="Logotipo da Vale Imobiliária"
-              width="200"
-              height="auto"
-            />
-          </a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-              <li class="nav-item mx-lg-2">
-                <a class="nav-link" href="#">Comprar</a>
-              </li>
-              <li class="nav-item mx-lg-2">
-                <a class="nav-link" href="#">Vender</a>
-              </li>
-              <li class="nav-item mx-lg-2">
-                <a class="nav-link" href="#">Alugar</a>
-              </li>
-              <li class="nav-item mx-lg-2">
-                <a class="nav-link" href="#">Blog</a>
-              </li>
-              <li class="nav-item mx-lg-2">
-                <a class="nav-link" href="#">Sobre nós</a>
-              </li>
-              <li class="nav-item mx-lg-2">
-                <a class="nav-link" href="#">Contato</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
-    <main>
-      <!-- Vídeo -->
-      <div class="video-bg">
-        <video autoplay muted loop>
-          <source
-            src="https://vapi.homes.com/video/play/2s1m5s/?source=42&amp;size=410"
-            type="video/mp4"
-          />
-          Seu navegador não suporta o formato de vídeo.
-        </video>
-        <div class="container search-bar">
-          <p class="homepage-text display-4 my-4">
-            Encontre o lar dos seus sonhos
-          </p>
-          <form class="d-flex justify-content-center align-items-center">
-            <div class="input-group" style="height: 45px">
-              <select class="form-select" aria-label="Tipo de pesquisa">
-                <option value="venda">Venda</option>
-                <option value="aluguel">Aluguel</option>
-                <option value="temporada">Temporada</option>
-              </select>
-              <input
-                type="search"
-                class="form-control"
-                placeholder="Pesquise por endereço, bairro, cidade ou CEP"
-                aria-label="Pesquisa"
-              />
-              <button class="btn btn-success" type="button">
-                <i class="bi bi-search"></i>
-              </button>
-            </div>
-          </form>
-          <a href="#" class="btn btn-outline-light mt-4">Sou proprietário(a)</a>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vale Imobiliária</title>
+  <link href="images/favicon.ico" rel="icon" type="image/x-icon" />
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet" />
+  <!-- CSS local -->
+  <link href="css/style.css" rel="stylesheet" />
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="navbar">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img src="images/logo-negativo.svg" alt="Logotipo da Vale Imobiliária" width="200" height="auto" />
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item mx-lg-2">
+              <a class="nav-link" href="#">Comprar</a>
+            </li>
+            <li class="nav-item mx-lg-2">
+              <a class="nav-link" href="#">Vender</a>
+            </li>
+            <li class="nav-item mx-lg-2">
+              <a class="nav-link" href="#">Alugar</a>
+            </li>
+            <li class="nav-item mx-lg-2">
+              <a class="nav-link" href="#">Blog</a>
+            </li>
+            <li class="nav-item mx-lg-2">
+              <a class="nav-link" href="#">Sobre nós</a>
+            </li>
+            <li class="nav-item mx-lg-2">
+              <a class="nav-link" href="#">Contato</a>
+            </li>
+          </ul>
         </div>
       </div>
-      <!-- Introdução -->
-      <div
-        class="container text-center"
-        style="margin-top: 7.5rem; margin-bottom: 7.5rem"
-      >
-        <img
-          src="images/icone-casa.svg"
-          alt="Ícone de casa"
-          class="mb-4"
-          width="200"
-          height="auto"
-        />
-        <h2 class="serif display-6">
-          Viva o estilo, respire a natureza
-        </h2>
-        <p class="p-home-intro">
-          Explore opções
-          exclusivas e conecte-se com a tranquilidade do Vale do Rio Doce.
-          Vivencie o equilíbrio perfeito entre o moderno e o natural, em um
-          lugar feito para quem valoriza conforto e qualidade de vida.
+    </nav>
+  </header>
+  <main>
+    <!-- Vídeo -->
+    <div class="video-bg">
+      <video autoplay muted loop>
+        <source src="https://vapi.homes.com/video/play/2s1m5s/?source=42&amp;size=410" type="video/mp4" />
+        Seu navegador não suporta o formato de vídeo.
+      </video>
+      <div class="container search-bar">
+        <p class="homepage-text display-4 my-4">
+          Encontre o lar dos seus sonhos
         </p>
+        <form class="d-flex justify-content-center align-items-center">
+          <div class="input-group" style="height: 45px">
+            <select class="form-select" id="tipoPesquisa" aria-label="Tipo de pesquisa">
+              <option value="venda">Venda</option>
+              <option value="aluguel">Aluguel</option>
+              <option value="temporada">Temporada</option>
+            </select>
+            <input type="search" class="form-control" id="searchInput"
+              placeholder="Pesquise por endereço, bairro, cidade ou CEP" aria-label="Pesquisa" />
+            <button class="btn btn-success" type="button" id="searchButton">
+              <i class="bi bi-search"></i>
+            </button>
+          </div>
+        </form>
+        <a href="#" class="btn btn-outline-light mt-4">Sou proprietário(a)</a>
       </div>
-      <!-- Fim Introdução -->
-      <!-- Lançamentos -->
-      <div class="container-fluid bg-sand p-5">
-        <div class="container">
-          <div class="row">
-            <div class="col-9">
-              <h2 class="home-features fw-normal">Lançamentos</h2>
-            </div>
-            <div class="col-3 text-end">
-              <a href="#" class="btn btn-outline-light">Ver tudo</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row g-0">
-        <!-- Card 1 -->
-        <div class="col-md-4">
-          <div class="card h-100 rounded-0 border-0">
-            <img
-              src="https://picsum.photos/1000?random=1"
-              alt="Imagem do Imóvel"
-            />
-            <div class="card-body px-5 py-4">
-              <p class="card-text small my-1">Apartamento</p>
-              <h5 class="card-title">Centro - Ipatinga</h5>
-              <p class="card-text small my-2">
-                120m² • 3 Quartos • 2 Banheiros • 1 Vaga
-              </p>
-              <p class="card-text small fw-semibold m-0">Venda</p>
-              <h5 class="card-title">R$ 750.000</h5>
-            </div>
-          </div>
-        </div>
-        <!-- Card 2 -->
-        <div class="col-md-4">
-          <div class="card h-100 rounded-0">
-            <img
-              src="https://picsum.photos/1000?random=2"
-              alt="Imagem do Imóvel"
-            />
-            <div class="card-body px-5 py-4">
-              <p class="card-text small my-1">Apartamento</p>
-              <h5 class="card-title">Centro - Ipatinga</h5>
-              <p class="card-text small my-2">
-                120m² • 3 Quartos • 2 Banheiros • 1 Vaga
-              </p>
-              <p class="card-text small fw-semibold m-0">Aluguel</p>
-              <h5 class="card-title">R$ 3.750/mês</h5>
-            </div>
-          </div>
-        </div>
-        <!-- Card 3 -->
-        <div class="col-md-4">
-          <div class="card h-100 rounded-0 border-0">
-            <img
-              src="https://picsum.photos/1000?random=3"
-              alt="Imagem do Imóvel"
-            />
-            <div class="card-body px-5 py-4">
-              <p class="card-text small my-1">Apartamento</p>
-              <h5 class="card-title">Centro - Ipatinga</h5>
-              <p class="card-text small my-2">
-                120m² • 3 Quartos • 2 Banheiros • 1 Vaga
-              </p>
-              <p class="card-text small fw-semibold m-0">Venda</p>
-              <h5 class="card-title">R$ 750.000</h5>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Fim Lançamentos -->
-      <!-- Mais Procurados -->
-      <div class="container-fluid bg-sand p-5">
-        <div class="container">
-          <div class="row">
-            <div class="col-9">
-              <h2 class="home-features fw-normal">Mais Procurados</h2>
-            </div>
-            <div class="col-3 text-end">
-              <a href="#" class="btn btn-outline-light">Ver tudo</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row g-0">
-        <!-- Card 1 -->
-        <div class="col-md-4">
-          <div class="card h-100 rounded-0 border-0">
-            <img
-              src="https://picsum.photos/1000?random=4"
-              alt="Imagem do Imóvel"
-            />
-            <div class="card-body px-5 py-4">
-              <p class="card-text small my-1">Apartamento</p>
-              <h5 class="card-title">Centro - Ipatinga</h5>
-              <p class="card-text small my-2">
-                120m² • 3 Quartos • 2 Banheiros • 1 Vaga
-              </p>
-              <p class="card-text small fw-semibold m-0">Venda</p>
-              <h5 class="card-title">R$ 750.000</h5>
-            </div>
-          </div>
-        </div>
-        <!-- Card 2 -->
-        <div class="col-md-4">
-          <div class="card h-100 rounded-0">
-            <img
-              src="https://picsum.photos/1000?random=5"
-              alt="Imagem do Imóvel"
-            />
-            <div class="card-body px-5 py-4">
-              <p class="card-text small my-1">Apartamento</p>
-              <h5 class="card-title">Centro - Ipatinga</h5>
-              <p class="card-text small my-2">
-                120m² • 3 Quartos • 2 Banheiros • 1 Vaga
-              </p>
-              <p class="card-text small fw-semibold m-0">Aluguel</p>
-              <h5 class="card-title">R$ 3.750/mês</h5>
-            </div>
-          </div>
-        </div>
-        <!-- Card 3 -->
-        <div class="col-md-4">
-          <div class="card h-100 rounded-0 border-0">
-            <img
-              src="https://picsum.photos/1000?random=6"
-              alt="Imagem do Imóvel"
-            />
-            <div class="card-body px-5 py-4">
-              <p class="card-text small my-1">Apartamento</p>
-              <h5 class="card-title">Centro - Ipatinga</h5>
-              <p class="card-text small my-2">
-                120m² • 3 Quartos • 2 Banheiros • 1 Vaga
-              </p>
-              <p class="card-text small fw-semibold m-0">Venda</p>
-              <h5 class="card-title">R$ 750.000</h5>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Fim Mais Procurados -->
-      <!-- Ofertas Especiais -->
-      <div class="container-fluid bg-sand p-5">
-        <div class="container">
-          <div class="row">
-            <div class="col-9">
-              <h2 class="home-features fw-normal">Ofertas Especiais</h2>
-            </div>
-            <div class="col-3 text-end">
-              <a href="#" class="btn btn-outline-light">Ver tudo</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row g-0 border-bottom border-gray">
-        <!-- Card 1 -->
-        <div class="col-md-4">
-          <div class="card h-100 rounded-0 border-0">
-            <img
-              src="https://picsum.photos/1000?random=7"
-              alt="Imagem do Imóvel"
-            />
-            <div class="card-body px-5 py-4">
-              <p class="card-text small my-1">Apartamento</p>
-              <h5 class="card-title">Centro - Ipatinga</h5>
-              <p class="card-text small my-2">
-                120m² • 3 Quartos • 2 Banheiros • 1 Vaga
-              </p>
-              <p class="card-text small fw-semibold m-0">Venda</p>
-              <h5 class="card-title">R$ 750.000</h5>
-            </div>
-          </div>
-        </div>
-        <!-- Card 2 -->
-        <div class="col-md-4">
-          <div class="card h-100 rounded-0 border-bottom-0">
-            <img
-              src="https://picsum.photos/1000?random=8"
-              alt="Imagem do Imóvel"
-            />
-            <div class="card-body px-5 py-4">
-              <p class="card-text small my-1">Apartamento</p>
-              <h5 class="card-title">Centro - Ipatinga</h5>
-              <p class="card-text small my-2">
-                120m² • 3 Quartos • 2 Banheiros • 1 Vaga
-              </p>
-              <p class="card-text small fw-semibold m-0">Aluguel</p>
-              <h5 class="card-title">R$ 3.750/mês</h5>
-            </div>
-          </div>
-        </div>
-        <!-- Card 3 -->
-        <div class="col-md-4">
-          <div class="card h-100 rounded-0 border-0">
-            <img
-              src="https://picsum.photos/1000?random=9"
-              alt="Imagem do Imóvel"
-            />
-            <div class="card-body px-5 py-4">
-              <p class="card-text small my-1">Apartamento</p>
-              <h5 class="card-title">Centro - Ipatinga</h5>
-              <p class="card-text small my-2">
-                120m² • 3 Quartos • 2 Banheiros • 1 Vaga
-              </p>
-              <p class="card-text small fw-semibold m-0">Venda</p>
-              <h5 class="card-title">R$ 750.000</h5>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Fim Ofertas Especiais -->
-      <!-- Serviços -->
-      <div
-        class="container text-center"
-        style="margin-top: 7.5rem; margin-bottom: 7.5rem"
-      >
-        <div style="margin-bottom: 5rem">
-          <h2 class="serif display-6">Prepare-se para dar o próximo passo</h2>
-          <p>
-            Nossa variedade de serviços vai te ajudar a tomar decisões seguras
-            sobre o seu imóvel.
-          </p>
-        </div>
-        <div class="row justify-content-center">
-          <!-- Avalie seu Imóvel -->
-          <div class="col-md-4">
-            <img
-              src="images/icone-moeda.svg"
-              alt="Ícone de moeda"
-              class="mb-4"
-              width="150"
-              height="auto"
-            />
-            <h5>Avalie seu imóvel</h5>
-            <p>
-              Obtenha uma avaliação on-line instantânea para ver quanto ele
-              vale.
-            </p>
-          </div>
-          <!-- Fique por Dentro -->
-          <div class="col-md-4">
-            <img
-              src="images/icone-lupa.svg"
-              alt="Ícone de lupa"
-              class="mb-4"
-              width="150"
-              height="auto"
-            />
-            <h5>Fique por dentro</h5>
-            <p>
-              Acompanhe o valor do seu imóvel, calcule seu patrimônio e veja o
-              que já foi vendido na sua região.
-            </p>
-          </div>
-          <!-- Converse com um Especialista -->
-          <div class="col-md-4">
-            <img
-              src="images/icone-aperto-de-mao.svg"
-              alt="Ícone de aperto de mão"
-              class="mb-4"
-              width="150"
-              height="auto"
-            />
-            <h5>Converse com um especialista</h5>
-            <p>
-              Agende uma avaliação presencial gratuita com um dos nossos
-              especialistas locais.
-            </p>
-          </div>
-        </div>
-      </div>
-    </main>
-    <footer class="bg-pine pt-5">
+    </div>
+    <!-- Introdução -->
+    <div class="container text-center" style="margin-top: 7.5rem; margin-bottom: 7.5rem">
+      <img src="images/icone-casa.svg" alt="Ícone de casa" class="mb-4" width="200" height="auto" />
+      <h2 class="serif display-6">
+        Viva o estilo, respire a natureza
+      </h2>
+      <p class="p-home-intro">
+        Explore opções exclusivas e conecte-se com a tranquilidade do Vale do Rio Doce.
+        Vivencie o equilíbrio perfeito entre o moderno e o natural, em um
+        lugar feito para quem valoriza conforto e qualidade de vida.
+      </p>
+    </div>
+    <!-- Fim Introdução -->
+    <!-- Lançamentos -->
+    <div class="container-fluid bg-sand p-5">
       <div class="container">
         <div class="row">
-          <!-- Logo e Slogan -->
-          <div class="col-lg-4 mb-4">
-            <img
-              src="images/logo-negativo.svg"
-              alt="Vale Imobiliária"
-              class="img-fluid mb-3"
-              style="max-width: 200px"
-            />
-            <p class="text-white-50">
-              Conectando você à natureza<br />e ao lar dos seus sonhos.
-            </p>
+          <div class="col-9">
+            <h2 class="home-features fw-normal">Lançamentos</h2>
           </div>
-          <!-- Links Rápidos -->
-          <div class="col-lg-4 mb-4">
-            <h4>Navegação</h4>
-            <ul class="list-unstyled">
-              <li>Início</li>
-              <li>Imóveis à venda</li>
-              <li>Locação</li>
-              <li>Quem Somos</li>
-              <li>Blog</li>
-            </ul>
-          </div>
-          <!-- Informações de Contato -->
-          <div class="col-lg-4 mb-4">
-            <h4>Contato</h4>
-            <ul class="list-unstyled">
-              <li>Av. Pedro Linhares Gomes, 5.431</li>
-              <li>contato@valeimobiliaria.com.br</li>
-              <li>
-                31 3822 9604<span style="color: var(--sand)"> • </span>31 8979
-                3703
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="text-center py-3">
-          <!-- Redes Sociais -->
-          <p class="fst-italic social-link">
-            Facebook<span style="color: var(--sand)"> • </span> X<span
-              style="color: var(--sand)"
-            >
-              •
-            </span>
-            Instagram<span style="color: var(--sand)"> • </span> LinkedIn<span
-              style="color: var(--sand)"
-            >
-              •
-            </span>
-            YouTube<span style="color: var(--sand)"> • </span> Pinterest<span
-              style="color: var(--sand)"
-            >
-              •
-            </span>
-            TikTok
-          </p>
-        </div>
-        <hr />
-        <div class="row text-white-50 py-2 small">
-          <!-- Termos do Site -->
-          <div class="col-lg-8 text-lg-start text-center">
-            <ul class="list-unstyled terms-link">
-              <li class="d-inline me-5">Privacidade</li>
-              <li class="d-inline me-5">Termos e Condições</li>
-              <li class="d-inline me-5">Cookies</li>
-            </ul>
-          </div>
-          <!-- Direitos Autorais -->
-          <div class="col-lg-4 text-lg-end text-center">
-            © 2024 Vale Imobiliária
+          <div class="col-3 text-end">
+            <a href="#" class="btn btn-outline-light">Ver tudo</a>
           </div>
         </div>
       </div>
-    </footer>
-    <!-- Bootstrap -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script>
-    <!-- JS local -->
-    <script src="js/script.js"></script>
-  </body>
+    </div>
+    <div class="row g-0">
+      <!-- Card 1 -->
+      <div class="col-md-4">
+        <div class="card h-100 rounded-0 border-0">
+          <img src="images/imovel-a-15.webp" alt="Imagem do Imóvel" />
+          <div class="card-body px-5 py-4">
+            <p class="card-text small my-1">Flat</p>
+            <h5 class="card-title">Elvamar - Governador Valadares</h5>
+            <p class="card-text small my-2">
+              35m² • 1 Quarto • 1 Banheiro • 1 Vaga
+            </p>
+            <p class="card-text small fw-semibold m-0">Aluguel</p>
+            <h5 class="card-title">R$ 3.500/mês</h5>
+          </div>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="col-md-4">
+        <div class="card h-100 rounded-0">
+          <img src="https://picsum.photos/1200/800?random=2" alt="Imagem do Imóvel" />
+          <div class="card-body px-5 py-4">
+            <p class="card-text small my-1">Apartamento</p>
+            <h5 class="card-title">Centro - Ipatinga</h5>
+            <p class="card-text small my-2">
+              120m² • 3 Quartos • 2 Banheiros • 1 Vaga
+            </p>
+            <p class="card-text small fw-semibold m-0">Aluguel</p>
+            <h5 class="card-title">R$ 3.750/mês</h5>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="col-md-4">
+        <div class="card h-100 rounded-0 border-0">
+          <img src="https://picsum.photos/1200/800?random=3" alt="Imagem do Imóvel" />
+          <div class="card-body px-5 py-4">
+            <p class="card-text small my-1">Apartamento</p>
+            <h5 class="card-title">Centro - Ipatinga</h5>
+            <p class="card-text small my-2">120m² • 3 Quartos • 2 Banheiros • 1 Vaga</p>
+            <p class="card-text small fw-semibold m-0">Venda</p>
+            <h5 class="card-title">R$ 750.000</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Fim Lançamentos -->
+    <!-- Mais Procurados -->
+    <div class="container-fluid bg-sand p-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-9">
+            <h2 class="home-features fw-normal">Mais Procurados</h2>
+          </div>
+          <div class="col-3 text-end">
+            <a href="#" class="btn btn-outline-light">Ver tudo</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row g-0">
+      <!-- Card 1 -->
+      <div class="col-md-4">
+        <div class="card h-100 rounded-0 border-0">
+          <img src="https://picsum.photos/1200/800?random=4" alt="Imagem do Imóvel" />
+          <div class="card-body px-5 py-4">
+            <p class="card-text small my-1">Apartamento</p>
+            <h5 class="card-title">Centro - Ipatinga</h5>
+            <p class="card-text small my-2">120m² • 3 Quartos • 2 Banheiros • 1 Vaga</p>
+            <p class="card-text small fw-semibold m-0">Venda</p>
+            <h5 class="card-title">R$ 750.000</h5>
+          </div>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="col-md-4">
+        <div class="card h-100 rounded-0">
+          <img src="https://picsum.photos/1200/800?random=5" alt="Imagem do Imóvel" />
+          <div class="card-body px-5 py-4">
+            <p class="card-text small my-1">Apartamento</p>
+            <h5 class="card-title">Centro - Ipatinga</h5>
+            <p class="card-text small my-2">120m² • 3 Quartos • 2 Banheiros • 1 Vaga</p>
+            <p class="card-text small fw-semibold m-0">Aluguel</p>
+            <h5 class="card-title">R$ 3.750/mês</h5>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="col-md-4">
+        <div class="card h-100 rounded-0 border-0">
+          <img src="https://picsum.photos/1200/800?random=6" alt="Imagem do Imóvel" />
+          <div class="card-body px-5 py-4">
+            <p class="card-text small my-1">Apartamento</p>
+            <h5 class="card-title">Centro - Ipatinga</h5>
+            <p class="card-text small my-2">120m² • 3 Quartos • 2 Banheiros • 1 Vaga</p>
+            <p class="card-text small fw-semibold m-0">Venda</p>
+            <h5 class="card-title">R$ 750.000</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Fim Mais Procurados -->
+    <!-- Ofertas Especiais -->
+    <div class="container-fluid bg-sand p-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-9">
+            <h2 class="home-features fw-normal">Ofertas Especiais</h2>
+          </div>
+          <div class="col-3 text-end">
+            <a href="#" class="btn btn-outline-light">Ver tudo</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row g-0 border-bottom border-gray">
+      <!-- Card 1 -->
+      <div class="col-md-4">
+        <div class="card h-100 rounded-0 border-0">
+          <img src="https://picsum.photos/1200/800?random=7" alt="Imagem do Imóvel" />
+          <div class="card-body px-5 py-4">
+            <p class="card-text small my-1">Apartamento</p>
+            <h5 class="card-title">Centro - Ipatinga</h5>
+            <p class="card-text small my-2">120m² • 3 Quartos • 2 Banheiros • 1 Vaga</p>
+            <p class="card-text small fw-semibold m-0">Venda</p>
+            <h5 class="card-title">R$ 750.000</h5>
+          </div>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="col-md-4">
+        <div class="card h-100 rounded-0 border-bottom-0">
+          <img src="https://picsum.photos/1200/800?random=8" alt="Imagem do Imóvel" />
+          <div class="card-body px-5 py-4">
+            <p class="card-text small my-1">Apartamento</p>
+            <h5 class="card-title">Centro - Ipatinga</h5>
+            <p class="card-text small my-2">
+              120m² • 3 Quartos • 2 Banheiros • 1 Vaga
+            </p>
+            <p class="card-text small fw-semibold m-0">Aluguel</p>
+            <h5 class="card-title">R$ 3.750/mês</h5>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="col-md-4">
+        <div class="card h-100 rounded-0 border-0">
+          <img src="https://picsum.photos/1200/800?random=9" alt="Imagem do Imóvel" />
+          <div class="card-body px-5 py-4">
+            <p class="card-text small my-1">Apartamento</p>
+            <h5 class="card-title">Centro - Ipatinga</h5>
+            <p class="card-text small my-2">
+              120m² • 3 Quartos • 2 Banheiros • 1 Vaga
+            </p>
+            <p class="card-text small fw-semibold m-0">Venda</p>
+            <h5 class="card-title">R$ 750.000</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Fim Ofertas Especiais -->
+    <!-- Serviços -->
+    <div class="container text-center" style="margin-top: 7.5rem; margin-bottom: 7.5rem">
+      <div style="margin-bottom: 5rem">
+        <h2 class="serif display-6">Prepare-se para dar o próximo passo</h2>
+        <p>
+          Nossa variedade de serviços vai te ajudar a tomar decisões seguras
+          sobre o seu imóvel.
+        </p>
+      </div>
+      <div class="row justify-content-center">
+        <!-- Avalie seu Imóvel -->
+        <div class="col-md-4">
+          <img src="images/icone-moeda.svg" alt="Ícone de moeda" class="mb-4" width="150" height="auto" />
+          <h5>Avalie seu imóvel</h5>
+          <p>
+            Obtenha uma avaliação on-line instantânea para ver quanto ele
+            vale.
+          </p>
+        </div>
+        <!-- Fique por Dentro -->
+        <div class="col-md-4">
+          <img src="images/icone-lupa.svg" alt="Ícone de lupa" class="mb-4" width="150" height="auto" />
+          <h5>Fique por dentro</h5>
+          <p>
+            Acompanhe o valor do seu imóvel, calcule seu patrimônio e veja o
+            que já foi vendido na sua região.
+          </p>
+        </div>
+        <!-- Converse com um Especialista -->
+        <div class="col-md-4">
+          <img src="images/icone-aperto-de-mao.svg" alt="Ícone de aperto de mão" class="mb-4" width="150"
+            height="auto" />
+          <h5>Converse com um especialista</h5>
+          <p>
+            Agende uma avaliação presencial gratuita com um dos nossos
+            especialistas locais.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- Fim Serviços -->
+  </main>
+  <footer class="bg-pine pt-5">
+    <div class="container">
+      <div class="row">
+        <!-- Logo e Slogan -->
+        <div class="col-lg-4 mb-4">
+          <img src="images/logo-negativo.svg" alt="Vale Imobiliária" class="img-fluid mb-3" style="max-width: 200px" />
+          <p class="text-white-50">
+            Conectando você à natureza<br />e ao lar dos seus sonhos.
+          </p>
+        </div>
+        <!-- Links Rápidos -->
+        <div class="col-lg-4 mb-4">
+          <h4>Navegação</h4>
+          <ul class="list-unstyled">
+            <li>Início</li>
+            <li>Imóveis à venda</li>
+            <li>Locação</li>
+            <li>Quem Somos</li>
+            <li>Blog</li>
+          </ul>
+        </div>
+        <!-- Informações de Contato -->
+        <div class="col-lg-4 mb-4">
+          <h4>Contato</h4>
+          <ul class="list-unstyled">
+            <li>Av. Pedro Linhares Gomes, 5.431</li>
+            <li>contato@valeimobiliaria.com.br</li>
+            <li>
+              31 3822 9604<span style="color: var(--sand)"> • </span>31 8979 3703
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="text-center py-3">
+        <!-- Redes Sociais -->
+        <p class="fst-italic social-link">
+          Facebook<span style="color: var(--sand)"> • </span>
+          X<span style="color: var(--sand)"> • </span>
+          Instagram<span style="color: var(--sand)"> • </span>
+          LinkedIn<span style="color: var(--sand)"> • </span>
+          YouTube<span style="color: var(--sand)"> • </span>
+          Pinterest<span style="color: var(--sand)"> • </span>
+          TikTok
+        </p>
+      </div>
+      <hr />
+      <div class="row text-white-50 py-2 small">
+        <!-- Termos do Site -->
+        <div class="col-lg-8 text-lg-start text-center">
+          <ul class="list-unstyled terms-link">
+            <li class="d-inline me-5">Privacidade</li>
+            <li class="d-inline me-5">Termos e Condições</li>
+            <li class="d-inline me-5">Cookies</li>
+          </ul>
+        </div>
+        <!-- Direitos Autorais -->
+        <div class="col-lg-4 text-lg-end text-center">
+          © 2024 Vale Imobiliária
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <!-- JS local -->
+  <script src="js/script.js"></script>
+</body>
+
 </html>
