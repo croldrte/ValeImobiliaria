@@ -24,12 +24,12 @@ body {
   font-family: "EB Garamond", serif;
 }
 
-#navbar {
+#navbar-main {
   background-color: transparent;
   transition: background-color 0.3s ease;
 }
 
-#navbar.scrolled {
+#navbar-main.scrolled {
   background-color: var(--pine);
 }
 
@@ -37,9 +37,14 @@ body {
 .btn,
 .home-features {
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.15em;
   color: white;
   border-radius: 0;
+  transition: letter-spacing 0.5s ease;
+}
+
+.nav-link:hover {
+  letter-spacing: 0.25em;
 }
 
 .nav-underline .nav-link,
