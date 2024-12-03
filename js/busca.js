@@ -16,17 +16,15 @@ const imoveis = [
         tipo: 'Aluguel',
         preco: '3.500/mês',
         caracteristicas: ['Ar-condicionado', 'Iluminação natural', 'Varanda']
-    },
-    // Adicione mais imóveis aqui, se necessário
+    }
 ];
 
-// Função para mostrar/ocultar filtros avançados
-document.getElementById('toggleFilters').onclick = function () {
-    const advancedFilters = document.getElementById('advancedFilters');
-    const isVisible = advancedFilters.style.display !== 'none';
-    advancedFilters.style.display = isVisible ? 'none' : 'block';
-    this.textContent = isVisible ? '+ Filtros' : '- Filtros';
-};
+// Mostrar/ocultar filtros avançados
+document.getElementById('toggleFilters').addEventListener('click', function () {
+    var filters = document.getElementById('advancedFilters');
+    filters.classList.toggle('d-none');
+    this.textContent = filters.classList.contains('d-none') ? '+ Filtros' : '- Filtros';
+});
 
 // Função para obter os parâmetros da URL (para pesquisa inicial)
 const urlParams = new URLSearchParams(window.location.search);
@@ -55,26 +53,30 @@ function carregarImoveis(filtroTipo, filtroTermo, filtrosAvancados = {}) {
     });
 
     // Exibir resultados
-    resultados.forEach(imovel => {
-        const item = document.createElement('div');
-        item.classList.add('row', 'd-flex');
-        item.innerHTML = `
-    <div class="col-lg-6">
-        <img src="${imovel.imagem}" alt="Imagem do imóvel" class="img-fluid"/>
-    </div>
-    <div class="col-lg-6 align-self-center">
-        <p class="card-text small my-1">${imovel.categoria}</p>
-        <h5 class="card-title">${imovel.bairro} - ${imovel.cidade}</h5>
-        <p class="card-text small my-2">
-            ${imovel.area}m² • ${imovel.quartos} Quarto(s) • ${imovel.banheiros} Banheiro(s) • ${imovel.vagas} Vaga(s)
-        </p>
-        <p class="card-text">${imovel.descricao}</p>
-        <p class="card-text small fw-semibold m-0">${imovel.tipo.charAt(0).toUpperCase() + imovel.tipo.slice(1)}</p>
-        <h5 class="card-title">R$ ${imovel.preco}</h5>
-    </div>
-        `;
-        lista.appendChild(item);
-    });
+    if (resultados.length > 0) {
+        resultados.forEach(imovel => {
+            const item = document.createElement('div');
+            item.classList.add('row', 'd-flex');
+            item.innerHTML = `
+            <div class="col-lg-6">
+                <img src="${imovel.imagem}" alt="Imagem do imóvel" class="img-fluid"/>
+            </div>
+            <div class="col-lg-6 align-self-center">
+                <p class="card-text small my-1">${imovel.categoria}</p>
+                <h5 class="card-title">${imovel.bairro} - ${imovel.cidade}</h5>
+                <p class="card-text small my-2">
+                    ${imovel.area}m² • ${imovel.quartos} Quarto(s) • ${imovel.banheiros} Banheiro(s) • ${imovel.vagas} Vaga(s)
+                </p>
+                <p class="card-text">${imovel.descricao}</p>
+                <p class="card-text small fw-semibold m-0">${imovel.tipo.charAt(0).toUpperCase() + imovel.tipo.slice(1)}</p>
+                <h5 class="card-title">R$ ${imovel.preco}</h5>
+            </div>
+            `;
+            lista.appendChild(item);
+        });
+    } else {
+        lista.innerHTML = '<p>Nenhum imóvel encontrado.</p>';
+    }
 }
 
 // Função para obter os filtros avançados

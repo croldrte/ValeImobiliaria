@@ -65,8 +65,8 @@
                 <h1 class="homepage-text display-4 pb-5 text-center">
                     Resultados da pesquisa
                 </h1>
-                <!-- Formulário de filtros avançados -->
-                <form id="advancedSearchForm" class="mt-4">
+                <!-- Formulário de filtros -->
+                <form id="basicFilters" class="mt-4">
                     <div class="row g-3">
                         <!-- Filtros de busca -->
                         <div class="col-xxl-3 col-lg-6 col-12">
@@ -112,9 +112,9 @@
                         </div>
                     </div>
                     <!-- Filtros avançados -->
-                    <div id="advancedFilters" class="row g-3 d-none">
-                        <!-- Filtros adicionais -->
+                    <div id="advancedFilters" class="row g-3 mt-1 d-none">                        
                         <div class="col-md-3 col-6">
+                            <!-- Quartos -->
                             <label for="quartos" class="form-label">Quartos</label>
                             <select id="quartos" class="form-select">
                                 <option value="">Selecione</option>
@@ -126,6 +126,7 @@
                             </select>
                         </div>
                         <div class="col-md-3 col-6">
+                            <!-- Banheiros -->
                             <label for="banheiros" class="form-label">Banheiros</label>
                             <select id="banheiros" class="form-select">
                                 <option value="">Selecione</option>
@@ -136,6 +137,7 @@
                             </select>
                         </div>
                         <div class="col-md-3 col-6">
+                            <!-- Vagas -->
                             <label for="vagas" class="form-label">Vagas</label>
                             <select id="vagas" class="form-select">
                                 <option value="">Selecione</option>
@@ -145,6 +147,7 @@
                             </select>
                         </div>
                         <div class="col-md-3 col-6">
+                            <!-- Área -->
                             <label for="area" class="form-label">Área</label>
                             <div class="input-group">
                                 <input type="number" class="form-control" id="areaMin" value="0" min="0" max="1000"
@@ -154,12 +157,129 @@
                                     step="50">
                             </div>
                         </div>
-                    </div>
-                    <div class="text-end mt-4">
-                        <button class="btn btn-outline-light" id="toggleFilters">+ Filtros</button>
-                        <button type="submit" class="btn btn-sand" id="searchButton">Pesquisar</button>
+                        <!-- Características -->
+                        <div class="mt-4">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="academia" value="academia">
+                                <label class="form-check-label" for="academia">Academia</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="ar-condicionado"
+                                    value="ar-condicionado">
+                                <label class="form-check-label" for="ar-condicionado">Ar-condicionado</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="area-verde" value="area-verde">
+                                <label class="form-check-label" for="area-verde">Área verde</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="automacao-residencial"
+                                    value="automacao-residencial">
+                                <label class="form-check-label" for="automacao-residencial">Automação
+                                    residencial</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="brinquedoteca"
+                                    value="brinquedoteca">
+                                <label class="form-check-label" for="brinquedoteca">Brinquedoteca</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="cameras-seguranca"
+                                    value="cameras-seguranca">
+                                <label class="form-check-label" for="cameras-seguranca">Câmeras de segurança</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="churrasqueira"
+                                    value="churrasqueira">
+                                <label class="form-check-label" for="churrasqueira">Churrasqueira</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="elevador" value="elevador">
+                                <label class="form-check-label" for="elevador">Elevador</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="energia-solar"
+                                    value="energia-solar">
+                                <label class="form-check-label" for="energia-solar">Energia solar</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="espaco-gourmet"
+                                    value="espaco-gourmet">
+                                <label class="form-check-label" for="espaco-gourmet">Espaço gourmet</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="fechaduras-eletronicas"
+                                    value="fechaduras-eletronicas">
+                                <label class="form-check-label" for="fechaduras-eletronicas">Fechaduras
+                                    eletrônicas</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="iluminacao-natural"
+                                    value="iluminacao-natural">
+                                <label class="form-check-label" for="iluminacao-natural">Iluminação natural</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="isolamento-acustico"
+                                    value="isolamento-acustico">
+                                <label class="form-check-label" for="isolamento-acustico">Isolamento acústico</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="jardim" value="jardim">
+                                <label class="form-check-label" for="jardim">Jardim</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="pet-place" value="pet-place">
+                                <label class="form-check-label" for="pet-place">Pet place</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="piscina" value="piscina">
+                                <label class="form-check-label" for="piscina">Piscina</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="playground" value="playground">
+                                <label class="form-check-label" for="playground">Playground</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="portaria-24h" value="portaria-24h">
+                                <label class="form-check-label" for="portaria-24h">Portaria 24h</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="quadra-esportiva"
+                                    value="quadra-esportiva">
+                                <label class="form-check-label" for="quadra-esportiva">Quadra esportiva</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="quintal" value="quintal">
+                                <label class="form-check-label" for="quintal">Quintal</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="salao-festas" value="salao-festas">
+                                <label class="form-check-label" for="salao-festas">Salão de festas</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="salao-jogos" value="salao-jogos">
+                                <label class="form-check-label" for="salao-jogos">Salão de jogos</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="sauna" value="sauna">
+                                <label class="form-check-label" for="sauna">Sauna</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="sistema-alarme"
+                                    value="sistema-alarme">
+                                <label class="form-check-label" for="sistema-alarme">Sistema de alarme</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="varanda" value="varanda">
+                                <label class="form-check-label" for="varanda">Varanda</label>
+                            </div>
+                        </div>
                     </div>
                 </form>
+                <div class="text-end mt-4">
+                    <button class="btn btn-outline-light" id="toggleFilters">+ Filtros</button>
+                    <button type="submit" class="btn btn-sand" id="searchButton">Pesquisar</button>
+                </div>
             </div>
         </div>
 
