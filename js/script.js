@@ -45,3 +45,34 @@ if (advancedFilters.classList.contains('d-none')) {
 } else {
   this.textContent = '- Filtros';
 }
+
+// Dados de bairros por cidade
+const bairrosPorCidade = {
+  'SaoPaulo': ['Centro', 'Itaim Bibi', 'Vila Madalena', 'Liberdade', 'Morumbi'],
+  'RioDeJaneiro': ['Copacabana', 'Ipanema', 'Leblon', 'Botafogo', 'Tijuca'],
+  'BeloHorizonte': ['Savassi', 'Funcionários', 'Santa Efigênia', 'Pampulha', 'Lourdes']
+};
+
+function atualizarBairros() {
+  const selectCidade = document.getElementById('cidade');
+  const selectBairro = document.getElementById('bairro');
+  const cidadeSelecionada = selectCidade.value;
+
+  // Limpar opções anteriores
+  selectBairro.innerHTML = '<option value="">Selecione o Bairro</option>';
+
+  // Se uma cidade for selecionada, habilitar e preencher o dropdown de bairros
+  if (cidadeSelecionada) {
+    selectBairro.disabled = false;
+    const bairros = bairrosPorCidade[cidadeSelecionada] || [];
+    bairros.forEach(bairro => {
+      const opcao = document.createElement('option');
+      opcao.value = bairro;
+      opcao.textContent = bairro;
+      selectBairro.appendChild(opcao);
+    });
+  } else {
+    // Desabilitar o dropdown de bairros se nenhuma cidade for selecionada
+    selectBairro.disabled = true;
+  }
+}

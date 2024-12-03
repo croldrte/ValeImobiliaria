@@ -1,6 +1,7 @@
 :root {
   --ivory: #e6e2df;
   --sand: #c29863;
+  --sand-hover: #9a7a4b;
   --pine: #164744;
   --ebony: #2a2620;
   --bs-dark-rgb: var(--ivory);
@@ -101,4 +102,12 @@ body {
     padding-right: 17.5rem;
     padding-left: 17.5rem;
   }
+}
+
+.btn-sand {
+  background-color: var(--sand);
+}
+
+.btn-sand:hover {
+  background-color: var(--sand-hover);
 }

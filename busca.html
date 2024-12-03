@@ -80,33 +80,48 @@
                 <form id="advancedSearchForm" class="mt-4">
                     <div class="row g-3">
                         <!-- Cidade -->
-                        <div class="col-lg-3 col-6">
+                        <div class="col-xxl-3 col-lg-6 col-12">
                             <label for="cidade" class="form-label">Cidade</label>
-                            <input type="text" class="form-control" id="cidade" placeholder="Digite a cidade">
+                            <select class="form-select" id="cidade" onchange="atualizarBairros()">
+                                <option value="">Selecione</option>
+                                <option value="Governador Valadares">Governador Valadares</option>
+                                <option value="RioDeJaneiro">Rio de Janeiro</option>
+                                <option value="BeloHorizonte">Belo Horizonte</option>
+                            </select>
                         </div>
                         <!-- Bairro -->
-                        <div class="col-lg-3 col-6">
+                        <div class="col-xxl-3 col-lg-6 col-12">
                             <label for="bairro" class="form-label">Bairro</label>
-                            <input type="text" class="form-control" id="bairro" placeholder="Digite o bairro">
+                            <select class="form-select" id="bairro" disabled>
+                                <option value="">Selecione</option>
+                            </select>
                         </div>
                         <!-- Tipo de Imóvel -->
-                        <div class="col-lg-3 col-6">
+                        <div class="col-xxl-3 col-lg-6 col-12">
                             <label for="categoria" class="form-label">Tipo</label>
                             <select id="categoria" class="form-select">
                                 <option value="">Selecione</option>
                                 <option value="Apartamento">Apartamento</option>
                                 <option value="Casa">Casa</option>
+                                <option value="Chácara">Chácara</option>
+                                <option value="Chalé">Chalé</option>
+                                <option value="Cobertura">Cobertura</option>
+                                <option value="Estúdio">Estúdio</option>
+                                <option value="Fazenda">Fazenda</option>
                                 <option value="Flat">Flat</option>
+                                <option value="Sítio">Sítio</option>
                                 <option value="Sobrado">Sobrado</option>
                             </select>
                         </div>
                         <!-- Faixa de Preço -->
-                        <div class="col-lg-3 col-6">
+                        <div class="col-xxl-3 col-lg-6 col-12">
                             <label for="preco" class="form-label">Valor</label>
                             <div class="input-group">
-                                <input type="number" class="form-control" id="precoMin" placeholder="Mínimo">
+                                <input type="number" class="form-control" id="precoMin" value="0" min="0" max="20000000"
+                                    step="10000">
                                 <span class="input-group-text">-</span>
-                                <input type="number" class="form-control" id="precoMax" placeholder="Máximo">
+                                <input type="number" class="form-control" id="precoMax" value="20000000" min="0"
+                                    max="20000000" step="500000">
                             </div>
                         </div>
                     </div>
@@ -140,7 +155,6 @@
                             <label for="vagas" class="form-label">Vagas</label>
                             <select id="vagas" class="form-select">
                                 <option value="">Selecione</option>
-                                <option value="0">0</option>
                                 <option value="1">1+</option>
                                 <option value="2">2+</option>
                                 <option value="3">3+</option>
@@ -150,20 +164,132 @@
                         <div class="col-md-3 col-6">
                             <label for="area" class="form-label">Área</label>
                             <div class="input-group">
-                                <input type="number" class="form-control" id="areaMin" placeholder="Mínimo">
+                                <input type="number" class="form-control" id="areaMin" value="0" min="0" max="1000"
+                                    step="10">
                                 <span class="input-group-text">-</span>
-                                <input type="number" class="form-control" id="areaMax" placeholder="Máximo">
+                                <input type="number" class="form-control" id="areaMax" value="1000" min="0" max="1000"
+                                    step="50">
                             </div>
                         </div>
                         <!-- Características -->
-                        <!-- Filtros adicionais aqui -->
+                        <div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="academia" value="academia">
+                                <label class="form-check-label" for="academia">Academia</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="ar-condicionado"
+                                    value="ar-condicionado">
+                                <label class="form-check-label" for="ar-condicionado">Ar-condicionado</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="area-verde" value="area-verde">
+                                <label class="form-check-label" for="area-verde">Área verde</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="automacao-residencial"
+                                    value="automacao-residencial">
+                                <label class="form-check-label" for="automacao-residencial">Automação
+                                    residencial</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="brinquedoteca"
+                                    value="brinquedoteca">
+                                <label class="form-check-label" for="brinquedoteca">Brinquedoteca</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="cameras-seguranca"
+                                    value="cameras-seguranca">
+                                <label class="form-check-label" for="cameras-seguranca">Câmeras de segurança</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="churrasqueira"
+                                    value="churrasqueira">
+                                <label class="form-check-label" for="churrasqueira">Churrasqueira</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="elevador" value="elevador">
+                                <label class="form-check-label" for="elevador">Elevador</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="energia-solar"
+                                    value="energia-solar">
+                                <label class="form-check-label" for="energia-solar">Energia solar</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="espaco-gourmet"
+                                    value="espaco-gourmet">
+                                <label class="form-check-label" for="espaco-gourmet">Espaço gourmet</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="fechaduras-eletronicas"
+                                    value="fechaduras-eletronicas">
+                                <label class="form-check-label" for="fechaduras-eletronicas">Fechaduras
+                                    eletrônicas</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="iluminacao-natural"
+                                    value="iluminacao-natural">
+                                <label class="form-check-label" for="iluminacao-natural">Iluminação natural</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="isolamento-acustico"
+                                    value="isolamento-acustico">
+                                <label class="form-check-label" for="isolamento-acustico">Isolamento acústico</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="jardim" value="jardim">
+                                <label class="form-check-label" for="jardim">Jardim</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="pet-place" value="pet-place">
+                                <label class="form-check-label" for="pet-place">Pet place</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="piscina" value="piscina">
+                                <label class="form-check-label" for="piscina">Piscina</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="playground" value="playground">
+                                <label class="form-check-label" for="playground">Playground</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="portaria-24h" value="portaria-24h">
+                                <label class="form-check-label" for="portaria-24h">Portaria 24h</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="quadra-esportiva"
+                                    value="quadra-esportiva">
+                                <label class="form-check-label" for="quadra-esportiva">Quadra esportiva</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="quintal" value="quintal">
+                                <label class="form-check-label" for="quintal">Quintal</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="salao-festas" value="salao-festas">
+                                <label class="form-check-label" for="salao-festas">Salão de festas</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="salao-jogos" value="salao-jogos">
+                                <label class="form-check-label" for="salao-jogos">Salão de jogos</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="sauna" value="sauna">
+                                <label class="form-check-label" for="sauna">Sauna</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="sistema-alarme"
+                                    value="sistema-alarme">
+                                <label class="form-check-label" for="sistema-alarme">Sistema de alarme</label>
+                            </div>
+                        </div>
                     </div>
-
                     <!-- Fim ocultar -->
                     <!-- Botões de filtro e busca -->
                     <div class="text-end mt-4">
                         <button class="btn btn-outline-light" id="toggleFilters">+ Filtros</button>
-                        <button type="submit" class="btn btn-primary" id="searchButton">Pesquisar</button>
+                        <button type="submit" class="btn btn-sand" id="searchButton">Pesquisar</button>
                     </div>
                 </form>
             </div>
@@ -249,9 +375,10 @@
     <script>
         // Imóveis
         const imoveis = [
-            { id: 1, imagem: 'images/imovel-a-15.webp', categoria: 'Flat', endereco: 'Rua A, 123', bairro: 'Elvamar', cidade: 'Governador Valadares', cep: '01000-000', area: 35, quartos: 1, banheiros: 1, vagas: 1, descricao: 'Flat exclusivo e moderno em Governador Valadares, com 35m², vista para a mata e o rio, Wi-Fi fibra ótica, ar-condicionado, varanda e completa infraestrutura.', tipo: 'venda', preco: '3.500/mês' }
+            { id: 1, imagem: 'images/imovel-a-15.webp', categoria: 'Flat', endereco: 'Rua A, 123', bairro: 'Elvamar', cidade: 'Governador Valadares', cep: '01000-000', area: 35, quartos: 1, banheiros: 1, vagas: 1, descricao: 'Flat exclusivo e moderno em Governador Valadares, com 35m², vista para a mata e o rio, Wi-Fi fibra ótica, ar-condicionado, varanda e completa infraestrutura.', tipo: 'Aluguel', preco: '3.500/mês' }
         ];
 
+        // Função de pesquisa personalizada com filtros
         // Função de pesquisa personalizada com filtros
         function PesquisaBusca() {
             document.getElementById('advancedSearchForm').addEventListener('submit', function (event) {
@@ -260,24 +387,28 @@
                 // Coleta os valores dos filtros
                 const cidade = document.getElementById("cidade").value.toLowerCase();
                 const bairro = document.getElementById("bairro").value.toLowerCase();
-                const categoria = document.getElementById("categoria").value;
-                const precoMin = parseFloat(document.getElementById("precoMin").value) || 0;
-                const precoMax = parseFloat(document.getElementById("precoMax").value) || Infinity;
-                const areaMin = parseFloat(document.getElementById("areaMin").value) || 0;
-                const areaMax = parseFloat(document.getElementById("areaMax").value) || Infinity;
-                const quartos = parseInt(document.getElementById("quartos").value) || 0;
+                const categoria = document.getElementById("categoria").value.toLowerCase();
+                const precoMin = document.getElementById("precoMin").value;
+                const precoMax = document.getElementById("precoMax").value;
+                const areaMin = document.getElementById("areaMin").value;
+                const areaMax = document.getElementById("areaMax").value;
+                const quartos = document.getElementById("quartos").value;
+                const banheiros = document.getElementById("banheiros").value;
+                const vagas = document.getElementById("vagas").value;
 
                 // Filtra os imóveis
                 const resultado = imoveis.filter(imovel => {
                     return (
                         imovel.cidade.toLowerCase().includes(cidade) &&
                         imovel.bairro.toLowerCase().includes(bairro) &&
-                        (categoria ? imovel.categoria === categoria : true) &&
+                        imovel.categoria.toLowerCase().includes(categoria) &&
                         parseFloat(imovel.preco.replace(/[^\d.-]/g, '')) >= precoMin &&
                         parseFloat(imovel.preco.replace(/[^\d.-]/g, '')) <= precoMax &&
                         imovel.area >= areaMin &&
                         imovel.area <= areaMax &&
-                        (quartos ? imovel.quartos >= quartos : true)
+                        (quartos ? imovel.quartos >= quartos : true) &&
+                        (banheiros ? imovel.banheiros >= banheiros : true) &&
+                        (vagas ? imovel.vagas >= vagas : true)
                     );
                 });
 
@@ -321,6 +452,8 @@
                 if (areaMin) url += `areaMin=${areaMin}&`;
                 if (areaMax) url += `areaMax=${areaMax}&`;
                 if (quartos) url += `quartos=${quartos}&`;
+                if (banheiros) url += `banheiros=${banheiros}&`;
+                if (vagas) url += `vagas=${vagas}&`;
 
                 // Remove o último '&' da URL, se necessário
                 url = url.endsWith('&') ? url.slice(0, -1) : url;
@@ -343,13 +476,17 @@
         function PesquisaHome() {
             const { tipo, termo } = getQueryParams();
             const searchTerm = termo ? termo.toLowerCase() : '';
+
             const resultado = imoveis.filter(imovel => {
-                // Verifica o tipo e se o termo de pesquisa aparece no endereço, bairro, cidade ou CEP
-                return imovel.tipo === tipo &&
-                    (imovel.endereco.toLowerCase().includes(searchTerm) ||
-                        imovel.bairro.toLowerCase().includes(searchTerm) ||
-                        imovel.cidade.toLowerCase().includes(searchTerm) ||
-                        imovel.cep.includes(searchTerm));
+                const tipoMatch = imovel.tipo.toLowerCase() === tipo.toLowerCase();
+                const termoMatch = searchTerm
+                    ? imovel.endereco.toLowerCase().includes(searchTerm) ||
+                    imovel.bairro.toLowerCase().includes(searchTerm) ||
+                    imovel.cidade.toLowerCase().includes(searchTerm) ||
+                    imovel.cep.includes(searchTerm)
+                    : true; // Ignora o termo se estiver vazio
+
+                return tipoMatch && termoMatch;
             });
 
             // Exibe os resultados
@@ -379,9 +516,20 @@
                     resultList.appendChild(div);
                 });
             } else {
-                // Caso não haja imóveis para exibir
                 resultList.innerHTML = '<p>Nenhum imóvel encontrado.</p>';
             }
+
+            // Atualiza a URL com os parâmetros existentes
+            let url = 'busca.html?';
+
+            if (tipo) url += `tipo=${tipo}&`;
+            if (termo) url += `termo=${termo}&`; // Apenas adiciona se o termo não estiver vazio
+
+            // Remove o último '&' da URL, se necessário
+            url = url.endsWith('&') ? url.slice(0, -1) : url;
+
+            // Atualiza a URL sem recarregar a página
+            window.history.pushState(null, null, url);
         }
 
         // Chama a função para exibir os resultados assim que a página for carregada
@@ -398,6 +546,37 @@
             // Alterar o texto do botão
             this.textContent = advancedFilters.classList.contains('d-none') ? '+ Filtros' : '- Filtros';
         });
+
+        // Dados de bairros por cidade
+        const bairrosPorCidade = {
+            'Governador Valadares': ['Elvamar'],
+            'RioDeJaneiro': ['Copacabana', 'Ipanema', 'Leblon', 'Botafogo', 'Tijuca'],
+            'BeloHorizonte': ['Savassi', 'Funcionários', 'Santa Efigênia', 'Pampulha', 'Lourdes']
+        };
+
+        function atualizarBairros() {
+            const selectCidade = document.getElementById('cidade');
+            const selectBairro = document.getElementById('bairro');
+            const cidadeSelecionada = selectCidade.value;
+
+            // Limpar opções anteriores
+            selectBairro.innerHTML = '<option value="">Selecione</option>';
+
+            // Se uma cidade for selecionada, habilitar e preencher o dropdown de bairros
+            if (cidadeSelecionada) {
+                selectBairro.disabled = false;
+                const bairros = bairrosPorCidade[cidadeSelecionada] || [];
+                bairros.forEach(bairro => {
+                    const opcao = document.createElement('option');
+                    opcao.value = bairro;
+                    opcao.textContent = bairro;
+                    selectBairro.appendChild(opcao);
+                });
+            } else {
+                // Desabilitar o dropdown de bairros se nenhuma cidade for selecionada
+                selectBairro.disabled = true;
+            }
+        }
     </script>
 
 </body>
