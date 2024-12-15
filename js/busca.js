@@ -41,15 +41,24 @@ function carregarImoveis(filtroTipo, filtroTermo, filtrosAvancados = {}) {
         const matchesTipo = filtroTipo ? imovel.tipo.toLowerCase() === filtroTipo.toLowerCase() : true;
         const matchesTermo = filtroTermo ? imovel.endereco.toLowerCase().includes(filtroTermo.toLowerCase()) ||
             imovel.bairro.toLowerCase().includes(filtroTermo.toLowerCase()) ||
-            imovel.cidade.toLowerCase().includes(filtroTermo.toLowerCase()) : true;
+            imovel.cidade.toLowerCase().includes(filtroTermo.toLowerCase()) ||
+            imovel.cep.includes(filtroTermo) : true;
 
         // Filtros avançados
+        const matchesBairro = filtrosAvancados.bairro ? imovel.bairro.toLowerCase() === filtrosAvancados.bairro.toLowerCase() : true;
+        const matchesQuartos = filtrosAvancados.quartos ? imovel.quartos >= filtrosAvancados.quartos : true;
+        const matchesBanheiros = filtrosAvancados.banheiros ? imovel.banheiros >= filtrosAvancados.banheiros : true;
+        const matchesVagas = filtrosAvancados.vagas ? imovel.vagas >= filtrosAvancados.vagas : true;
+        const matchesArea = filtrosAvancados.areaMin ? imovel.area >= filtrosAvancados.areaMin : true;
+        const matchesAreaMax = filtrosAvancados.areaMax ? imovel.area <= filtrosAvancados.areaMax : true;
+        const matchesCaracteristicas = filtrosAvancados.caracteristicas ? filtrosAvancados.caracteristicas.every(c => imovel.caracteristicas.includes(c)) : true;
         const matchesCidade = filtrosAvancados.cidade ? imovel.cidade.toLowerCase() === filtrosAvancados.cidade.toLowerCase() : true;
         const matchesCategoria = filtrosAvancados.categoria ? imovel.categoria.toLowerCase() === filtrosAvancados.categoria.toLowerCase() : true;
         const matchesPrecoMin = filtrosAvancados.precoMin ? parseFloat(imovel.preco.replace('R$', '').replace('/mês', '').replace(',', '.')) >= filtrosAvancados.precoMin : true;
         const matchesPrecoMax = filtrosAvancados.precoMax ? parseFloat(imovel.preco.replace('R$', '').replace('/mês', '').replace(',', '.')) <= filtrosAvancados.precoMax : true;
 
-        return matchesTipo && matchesTermo && matchesCidade && matchesCategoria && matchesPrecoMin && matchesPrecoMax;
+        return matchesTipo && matchesTermo && matchesCidade && matchesCategoria && matchesPrecoMin && matchesPrecoMax &&
+            matchesBairro && matchesQuartos && matchesBanheiros && matchesVagas && matchesArea && matchesAreaMax && matchesCaracteristicas;
     });
 
     // Exibir resultados
@@ -85,7 +94,14 @@ function obterFiltrosAvancados() {
         cidade: document.getElementById('cidade').value,
         categoria: document.getElementById('categoria').value,
         precoMin: parseFloat(document.getElementById('precoMin').value),
-        precoMax: parseFloat(document.getElementById('precoMax').value)
+        precoMax: parseFloat(document.getElementById('precoMax').value),
+        bairro: document.getElementById('bairro').value,
+        quartos: parseInt(document.getElementById('quartos').value),
+        banheiros: parseInt(document.getElementById('banheiros').value),
+        vagas: parseInt(document.getElementById('vagas').value),
+        areaMin: parseInt(document.getElementById('areaMin').value),
+        areaMax: parseInt(document.getElementById('areaMax').value),
+        caracteristicas: Array.from(document.querySelectorAll('input[name="caracteristicas"]:checked')).map(el => el.value)
     };
 }
 
