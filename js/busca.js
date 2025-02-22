@@ -1,9 +1,9 @@
 // Dados dos imóveis
 const imoveis = [
     {
-        id: 1,
-        imagem: 'images/imovel-a-15.webp',
-        categoria: 'Flat',
+        id: 'FL01',
+        imagem: 'images/imovel-fl01-1.webp',
+        tipo: 'Flat',
         endereco: 'Rua A, 123',
         bairro: 'Elvamar',
         cidade: 'Governador Valadares',
@@ -13,55 +13,79 @@ const imoveis = [
         banheiros: 1,
         vagas: 1,
         descricao: 'Flat exclusivo e moderno em Governador Valadares, com 35m², vista para a mata e o rio, Wi-Fi fibra ótica, ar-condicionado, varanda e completa infraestrutura.',
-        tipo: 'Aluguel',
-        preco: '3.500/mês',
-        caracteristicas: ['Ar-condicionado', 'Iluminação natural', 'Varanda']
+        pretensao: 'Aluguel',
+        preco: 3500,
+        caracteristicas: ['ar-condicionado', 'iluminacao-natural', 'varanda']
     }
 ];
 
-// Mostrar/ocultar filtros avançados
-document.getElementById('toggleFilters').addEventListener('click', function () {
-    var filters = document.getElementById('advancedFilters');
-    filters.classList.toggle('d-none');
-    this.textContent = filters.classList.contains('d-none') ? '+ Filtros' : '- Filtros';
-});
+function getQueryParams() {
+    const params = new URLSearchParams(window.location.search);
 
-// Função para obter os parâmetros da URL (para pesquisa inicial)
-const urlParams = new URLSearchParams(window.location.search);
-const tipoPesquisa = urlParams.get('tipo');
-const termoPesquisa = urlParams.get('termo');
+    const caracteristicas = [
+        'academia', 'ar-condicionado', 'area-verde', 'automacao-residencial',
+        'brinquedoteca', 'cameras-seguranca', 'churrasqueira', 'elevador',
+        'energia-solar', 'espaco-gourmet', 'fechaduras-eletronicas', 'iluminacao-natural',
+        'isolamento-acustico', 'jardim', 'pet-place', 'piscina', 'playground',
+        'portaria-24h', 'quadra-esportiva', 'quintal', 'salao-festas', 'salao-jogos',
+        'sauna', 'sistema-alarme', 'varanda'
+    ];
 
-// Função para carregar imóveis com base nos filtros
-function carregarImoveis(filtroTipo, filtroTermo, filtrosAvancados = {}) {
-    const lista = document.getElementById('resultadosImoveis');
-    lista.innerHTML = ''; // Limpa a lista antes de adicionar novos itens
+    return {
+        pretensao: params.get('pretensao'),
+        termo: params.get('termo'),
+        cidade: params.get('cidade'),
+        bairro: params.get('bairro'),
+        tipo: params.get('categoria'),
+        precoMin: params.get('precoMin'),
+        precoMax: params.get('precoMax'),
+        quartos: params.get('quartos'),
+        banheiros: params.get('banheiros'),
+        vagas: params.get('vagas'),
+        areaMin: params.get('areaMin'),
+        areaMax: params.get('areaMax'),
+        caracteristicas: caracteristicas.filter(caracteristica =>
+            params.has(caracteristica)
+        )
+    };
+}
 
-    // Filtrando imóveis
+function buscarImoveis() {
+    const params = getQueryParams();
+
     const resultados = imoveis.filter(imovel => {
-        const matchesTipo = filtroTipo ? imovel.tipo.toLowerCase() === filtroTipo.toLowerCase() : true;
-        const matchesTermo = filtroTermo ? imovel.endereco.toLowerCase().includes(filtroTermo.toLowerCase()) ||
-            imovel.bairro.toLowerCase().includes(filtroTermo.toLowerCase()) ||
-            imovel.cidade.toLowerCase().includes(filtroTermo.toLowerCase()) ||
-            imovel.cep.includes(filtroTermo) : true;
+        const pretensaoCorrespondente = params.pretensao ? imovel.pretensao && imovel.pretensao.toLowerCase() === params.pretensao.toLowerCase() : true;
+        const termoCorrespondente = params.termo ? imovel.endereco.toLowerCase().includes(params.termo.toLowerCase()) ||
+            imovel.bairro.toLowerCase().includes(params.termo.toLowerCase()) ||
+            imovel.cidade.toLowerCase().includes(params.termo.toLowerCase()) ||
+            imovel.cep.includes(params.termo) : true;
+        const cidadeCorrespondente = params.cidade ? imovel.cidade === params.cidade : true;
+        const bairroCorrespondente = params.bairro ? imovel.bairro === params.bairro : true;
+        const categoriaCorrespondente = params.categoria ? imovel.categoria === params.categoria : true;
+        const precoMinCorrespondente = imovel.preco >= (params.precoMin || 0);
+        const precoMaxCorrespondente = imovel.preco <= (params.precoMax || Infinity);
+        const quartosCorrespondente = params.quartos ? imovel.quartos >= params.quartos : true;
+        const banheirosCorrespondente = params.banheiros ? imovel.banheiros >= params.banheiros : true;
+        const vagasCorrespondente = params.vagas ? imovel.vagas >= params.vagas : true;
+        const areaMinCorrespondente = imovel.area >= (params.areaMin || 0);
+        const areaMaxCorrespondente = imovel.area <= (params.areaMax || Infinity);
+        const caracteristicasCorrespondentes = params.caracteristicas.length > 0 ?
+            params.caracteristicas.every(caracteristica =>
+                imovel.caracteristicas.includes(caracteristica)
+            ) : true;
 
-        // Filtros avançados
-        const matchesBairro = filtrosAvancados.bairro ? imovel.bairro.toLowerCase() === filtrosAvancados.bairro.toLowerCase() : true;
-        const matchesQuartos = filtrosAvancados.quartos ? imovel.quartos >= filtrosAvancados.quartos : true;
-        const matchesBanheiros = filtrosAvancados.banheiros ? imovel.banheiros >= filtrosAvancados.banheiros : true;
-        const matchesVagas = filtrosAvancados.vagas ? imovel.vagas >= filtrosAvancados.vagas : true;
-        const matchesArea = filtrosAvancados.areaMin ? imovel.area >= filtrosAvancados.areaMin : true;
-        const matchesAreaMax = filtrosAvancados.areaMax ? imovel.area <= filtrosAvancados.areaMax : true;
-        const matchesCaracteristicas = filtrosAvancados.caracteristicas ? filtrosAvancados.caracteristicas.every(c => imovel.caracteristicas.includes(c)) : true;
-        const matchesCidade = filtrosAvancados.cidade ? imovel.cidade.toLowerCase() === filtrosAvancados.cidade.toLowerCase() : true;
-        const matchesCategoria = filtrosAvancados.categoria ? imovel.categoria.toLowerCase() === filtrosAvancados.categoria.toLowerCase() : true;
-        const matchesPrecoMin = filtrosAvancados.precoMin ? parseFloat(imovel.preco.replace('R$', '').replace('/mês', '').replace(',', '.')) >= filtrosAvancados.precoMin : true;
-        const matchesPrecoMax = filtrosAvancados.precoMax ? parseFloat(imovel.preco.replace('R$', '').replace('/mês', '').replace(',', '.')) <= filtrosAvancados.precoMax : true;
-
-        return matchesTipo && matchesTermo && matchesCidade && matchesCategoria && matchesPrecoMin && matchesPrecoMax &&
-            matchesBairro && matchesQuartos && matchesBanheiros && matchesVagas && matchesArea && matchesAreaMax && matchesCaracteristicas;
+        return pretensaoCorrespondente && termoCorrespondente && cidadeCorrespondente && bairroCorrespondente && categoriaCorrespondente && precoMinCorrespondente && precoMaxCorrespondente && quartosCorrespondente && banheirosCorrespondente && vagasCorrespondente && areaMinCorrespondente && areaMaxCorrespondente && caracteristicasCorrespondentes;
     });
 
-    // Exibir resultados
+    carregarImoveis(resultados);
+}
+
+window.onload = buscarImoveis;
+
+function carregarImoveis(resultados) {
+    const lista = document.getElementById('resultados');
+    lista.innerHTML = '';
+
     if (resultados.length > 0) {
         resultados.forEach(imovel => {
             const item = document.createElement('div');
@@ -71,14 +95,14 @@ function carregarImoveis(filtroTipo, filtroTermo, filtrosAvancados = {}) {
                 <img src="${imovel.imagem}" alt="Imagem do imóvel" class="img-fluid"/>
             </div>
             <div class="col-lg-6 align-self-center">
-                <p class="card-text small my-1">${imovel.categoria}</p>
+                <p class="card-text small my-1">${imovel.tipo}</p>
                 <h5 class="card-title">${imovel.bairro} - ${imovel.cidade}</h5>
                 <p class="card-text small my-2">
                     ${imovel.area}m² • ${imovel.quartos} Quarto(s) • ${imovel.banheiros} Banheiro(s) • ${imovel.vagas} Vaga(s)
                 </p>
                 <p class="card-text">${imovel.descricao}</p>
-                <p class="card-text small fw-semibold m-0">${imovel.tipo.charAt(0).toUpperCase() + imovel.tipo.slice(1)}</p>
-                <h5 class="card-title">R$ ${imovel.preco}</h5>
+                <p class="card-text small fw-semibold m-0">${imovel.pretensao}</p>
+                <h5 class="card-title">${imovel.preco.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 })}</h5>
             </div>
             `;
             lista.appendChild(item);
@@ -88,31 +112,10 @@ function carregarImoveis(filtroTipo, filtroTermo, filtrosAvancados = {}) {
     }
 }
 
-// Função para obter os filtros avançados
-function obterFiltrosAvancados() {
-    return {
-        cidade: document.getElementById('cidade').value,
-        categoria: document.getElementById('categoria').value,
-        precoMin: parseFloat(document.getElementById('precoMin').value),
-        precoMax: parseFloat(document.getElementById('precoMax').value),
-        bairro: document.getElementById('bairro').value,
-        quartos: parseInt(document.getElementById('quartos').value),
-        banheiros: parseInt(document.getElementById('banheiros').value),
-        vagas: parseInt(document.getElementById('vagas').value),
-        areaMin: parseInt(document.getElementById('areaMin').value),
-        areaMax: parseInt(document.getElementById('areaMax').value),
-        caracteristicas: Array.from(document.querySelectorAll('input[name="caracteristicas"]:checked')).map(el => el.value)
-    };
-}
-
-// Evento para o botão de pesquisa
-document.getElementById('searchButton').addEventListener('click', function (event) {
-    event.preventDefault();  // Evitar o envio do formulário
-
-    // Coleta os filtros da URL e dos filtros avançados
-    const filtrosAvancados = obterFiltrosAvancados();
-    carregarImoveis(tipoPesquisa, termoPesquisa, filtrosAvancados);
+// Mostrar/ocultar filtros avançados em busca.html
+document.getElementById('toggleFilters').addEventListener('click', function (e) {
+    e.preventDefault();
+    var filters = document.getElementById('advancedFilters');
+    filters.classList.toggle('d-none');
+    this.textContent = filters.classList.contains('d-none') ? '+ Filtros' : '- Filtros';
 });
-
-// Carregar imóveis ao carregar a página com os filtros de URL e filtros avançados
-carregarImoveis(tipoPesquisa, termoPesquisa);

@@ -72,14 +72,15 @@
         </p>
         <form class="d-flex justify-content-center align-items-center" action="busca.html" method="GET">
           <div class="input-group" style="height: 45px">
-            <select class="form-select" id="tipoPesquisa" name="tipo" aria-label="Tipo de pesquisa">
+            <select class="form-select" id="pretensao" name="pretensao" aria-label="Selecione a pretensão">
               <option value="venda">Venda</option>
               <option value="aluguel">Aluguel</option>
               <option value="temporada">Temporada</option>
             </select>
-            <input type="search" class="form-control" id="searchInput" name="termo"
-              placeholder="Pesquise por endereço, bairro, cidade ou CEP" aria-label="Pesquisa" />
-            <button class="btn btn-sand" type="submit">
+            <input type="search" class="form-control" id="termo" name="termo"
+              placeholder="Pesquise por endereço, bairro, cidade ou CEP"
+              aria-label="Digite endereço, bairro, cidade ou CEP" />
+            <button class="btn btn-sand" type="submit" aria-label="Pesquisar" onsubmit="buscarImoveis()">
               <i class="bi bi-search"></i>
             </button>
           </div>
@@ -117,7 +118,7 @@
       <!-- Card 1 -->
       <div class="col-md-4">
         <div class="card h-100 rounded-0 border-0">
-          <img src="images/imovel-a-15.webp" alt="Imagem do Imóvel" />
+          <img src="images/imovel-fl01-1.webp" alt="Imagem do Imóvel" />
           <div class="card-body px-5 py-4">
             <p class="card-text small my-1">Flat</p>
             <h5 class="card-title">Elvamar - Governador Valadares</h5>
@@ -125,7 +126,7 @@
               35m² • 1 Quarto • 1 Banheiro • 1 Vaga
             </p>
             <p class="card-text small fw-semibold m-0">Aluguel</p>
-            <h5 class="card-title">R$ 3.500/mês</h5>
+            <h5 class="card-title">R$ 3.500</h5>
           </div>
         </div>
       </div>
@@ -385,6 +386,7 @@
     crossorigin="anonymous"></script>
   <!-- JS local -->
   <script src="js/script.js"></script>
+  <script src="js/busca.js"></script>
 
 </body>
 
