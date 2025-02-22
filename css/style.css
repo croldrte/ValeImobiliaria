@@ -93,10 +93,6 @@ body {
   letter-spacing: 0.1em;
 }
 
-/* .card:hover {
-  border-color: var(--sand);
-} */
-
 @media (min-width: 1200px) {
   .p-home-intro {
     padding-right: 17.5rem;
@@ -110,4 +106,5 @@ body {
 
 .btn-sand:hover {
   background-color: var(--sand-hover);
+  color: white;
 }
