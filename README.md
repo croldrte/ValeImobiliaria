@@ -1,8 +1,10 @@
-<h1 style="text-align: center">Vale Imobiliária</h1>
-<p style="text-align: center">Projeto de site para a fictícia Vale Imobiliária, desenvolvido com HTML, CSS, JavaScript e Bootstrap.</p>
-<a href="https://croldrte.github.io/ValeImobiliaria/">
-<p style="text-align: center">Live Demo</p>
-</a>
+<div align="center">
+  <h1>Vale Imobiliária</h1>
+  <p>Projeto de site para a fictícia Vale Imobiliária, desenvolvido com HTML, CSS, JavaScript e Bootstrap.</p>
+  <a href="https://croldrte.github.io/ValeImobiliaria/">
+    <p>Live Demo</p>
+  </a>
+</div>
 
 ## Conteúdo
 1. [Introdução](#introdução)
