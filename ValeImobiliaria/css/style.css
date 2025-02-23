@@ -1,0 +1,110 @@
+:root {
+  --ivory: #e6e2df;
+  --sand: #c29863;
+  --sand-hover: #9a7a4b;
+  --pine: #164744;
+  --ebony: #2a2620;
+  --bs-dark-rgb: var(--ivory);
+}
+
+body {
+  font-family: "Raleway", sans-serif;
+}
+
+.bg-sand {
+  background-color: var(--sand);
+  color: white;
+}
+
+.bg-pine {
+  background-color: var(--pine);
+  color: white;
+}
+
+.serif {
+  font-family: "EB Garamond", serif;
+}
+
+#navbar-main {
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+}
+
+#navbar-main.scrolled {
+  background-color: var(--pine);
+}
+
+.navbar .nav-link,
+.btn,
+.home-features {
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: white;
+  border-radius: 0;
+  transition: letter-spacing 0.5s ease;
+}
+
+.nav-link:hover {
+  letter-spacing: 0.25em;
+}
+
+.nav-underline .nav-link,
+.nav-underline .nav-link.active {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ebony);
+}
+
+.video-bg {
+  position: relative;
+  width: 100%;
+  height: 45vh;
+  overflow: hidden;
+}
+
+.video-bg video {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.homepage-text {
+  font-family: "EB Garamond", serif;
+  color: white;
+  line-height: 1;
+}
+
+.search-bar {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+}
+
+.social-link {
+  letter-spacing: 0.05em;
+  font-family: "EB Garamond", serif;
+  font-size: 115%;
+}
+
+.terms-link {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+@media (min-width: 1200px) {
+  .p-home-intro {
+    padding-right: 17.5rem;
+    padding-left: 17.5rem;
+  }
+}
+
+.btn-sand {
+  background-color: var(--sand);
+}
+
+.btn-sand:hover {
+  background-color: var(--sand-hover);
+  color: white;
+}
